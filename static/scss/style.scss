@@ -1,0 +1,64 @@
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+.login-form {
+  position: absolute;
+  width: 100%;
+  top: 35%;
+}
+
+#new-channel div {
+  margin-bottom: 0;
+}
+
+// new-message-block always on bottom
+#new-message-block {
+  position: fixed;
+  bottom: 40px;
+  width: 100%;
+}
+
+#messages-wrapper {
+  max-height: 65vh;
+  overflow-y: auto;
+  margin-bottom: 120px;
+}
+
+// Messages
+#messages-list li {
+  &:not(:first-child) {
+    margin-top: 1em;
+  }
+
+  .m-username {
+    font-weight: bold;
+  }
+
+  .m-timestamp {
+    &:not(:first-child) {
+      &::before {
+        content: " @ ";
+      }
+    }
+
+    font-weight: lighter;
+  }
+
+  .message-body {
+    font-size: 1.2em;
+    margin-left: 1.2em;
+  }
+}

@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+
+{% block imports %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.slim.js"></script>
+<script src="{{ url_for('static', filename='js/chat.js') }}"></script>
+{% endblock %}
+
+{% block title %}
+<title>Welcome to &#220;berFlack!</title>
+{% endblock %}
+
+{% block navbar_links %}
+<ul class="right">
+  <li>
+    <a id="logout-link" href="{{ url_for('logout') }}">Log out</a>
+  </li>
+</ul>
+{% endblock %}
+
+{% block body %}
+<section>
+  <div class="row">
+    <!-- First column -->
+    <div class="col l2 offset-l1 m3 s3">
+      <h5>Channels</h5>
+      <div class="row">
+        <form id="new-channel" class="col l12 m12 s12" method="post">
+          <div class="row">
+            <div class="input-field col l8 m8 s8">
+              <input id="new-channel-name" name="new-channel" type="text" class="validate" placeholder="New channel">
+              <!-- <label for="new-channel-name">New channel</label> -->
+            </div>
+            <div class="input-field col l4 m4 s4">
+              <button class="btn waves-effect waves-light" type="submit">
+                <i class="material-icons">add</i>
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div id="channels-list" class="collection">
+        <p id="no-channel-list" class="center-align">
+          <strong>No channel available</strong>
+        </p>
+      </div>
+    </div>
+    <!-- Second column -->
+    <div id="messages-wrapper" class="col l6 m6 s6">
+      <div id="no-channel-selected">
+        <p class="center-align">
+          <strong>No channel selected</strong>
+        </p>
+      </div>
+      <div id="messages-block">
+        <ul id="messages-list">
+        </ul>
+      </div>
+    </div>
+    <!-- Third column -->
+    <div id="users-list-block" class="col l2 m3 s3">
+      <h5>Users</h5>
+      <ul id="users-list" class="collection">
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div id="new-message-block" class="row">
+    <div class="col l6 offset-l3 m9 offset-m3 s9 offset-s3">
+      <form id="new-message" method="post">
+        <div class="row">
+          <div class="input-field col l8 m8 s8">
+            <input id="new-message-text" name="new-message" type="text" class="validate" autocomplete="off">
+            <!-- <label for="new-channel-name">New channel</label> -->
+          </div>
+          <div class="input-field col l2 m2 s2">
+            <button class="btn waves-effect waves-light" type="submit">Send
+              <i class="material-icons right">send</i>
+            </button>
+          </div>
+          <div class="input-field col l2 m2 s2">
+            <input type="file" id="upload-file" name="file" style="display: none;">
+            <button id="upload-file-button" class="waves-effect waves-light btn">File
+              <i class="material-icons left">file_upload</i>
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+{% endblock %}

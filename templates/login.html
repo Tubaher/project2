@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block imports %}
+<script src="{{ url_for('static', filename='js/login.js') }}"></script>
+{% endblock %}
+
+{% block title %}
+<title>Introduce yourself</title>
+{% endblock %}
+
+{% block body %}
+<section>
+  <div class="login-form">
+    <div class="row">
+      <div class="col l12 m12 s12">
+        <h5 class="center-align">
+          Please, enter your name
+        </h5>
+      </div>
+    </div>
+    <div class="row">
+      <form id="username" class="col l4 offset-l4 m6 offset-m3 s8 offset-s2 center-align" method="post">
+        <div class="row">
+          <div class="input-field col l9 m9 s9">
+            <i class="material-icons prefix">account_circle</i>
+            <input id="username-field" name="username" type="text" class="validate">
+            <label for="username-field">Username</label>
+          </div>
+          <div class="input-field col l3 m3 s3">
+            <button class="btn waves-effect waves-light pulse" type="submit">Go!
+              <i class="material-icons right">send</i>
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,7 @@
+# Virtual environment
+Pipfile*
+.venv/
+
+# Project files
+.sass-cache/
+uploads/

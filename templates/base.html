@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Harvard CS50 Web project2">
+    <meta name="author" content="Sergey Kostromin">
+
+    <!-- Materialize -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <!-- Custom scripts and styles -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+    {% block imports %}
+    {% endblock %}
+
+    {% block title %}
+    {% endblock %}
+  </head>
+  <body>
+    <header>
+      <div class="navbar-fixed">
+        <nav>
+          <div class="nav-wrapper">
+            <a href="{{ url_for('index') }}" class="brand-logo center">&#220;berFlack</a>
+            {% block navbar_links %}
+            {% endblock %}
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      {% block body %}
+      {% endblock %}
+    </main>
+
+    <footer class="page-footer">
+        <div class="container">
+          <div class="row">
+          </div>
+        </div>
+        <div class="footer-copyright">
+            <div class="container">
+                Made by <a href="mailto:sgtstrom@gmail.com">sgtStrom</a> for edX's CS50 course project
+            </div>
+        </div>
+    </footer>
+  </body>
+</html>
