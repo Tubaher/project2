@@ -5,3 +5,5 @@ Pipfile*
 # Project files
 .sass-cache/
 uploads/
+.vscode
+project2
